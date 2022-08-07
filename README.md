@@ -1,90 +1,72 @@
-<p align="center">
-    <a href="https://magento.com">
-        <img src="https://static.magento.com/sites/all/themes/magento/logo.svg" width="300px" alt="Magento Commerce" />
-    </a>
-    <br />
-    <br />
-    <a href="https://www.codetriage.com/magento/magento2">
-        <img src="https://www.codetriage.com/magento/magento2/badges/users.svg" alt="Open Source Helpers" />
-    </a>
-    <a href="https://gitter.im/magento/magento2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
-        <img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter" />
-    </a>
-    <a href="https://crowdin.com/project/magento-2">
-        <img src="https://d322cqt584bo4o.cloudfront.net/magento-2/localized.svg" alt="Crowdin" />
-    </a>
-</p>
+Magento sample data includes a sample store, complete with more than 250 products (about 200 of them are configurable products), categories, promotional price rules, CMS pages, banners, and so on. Sample data uses the Luma theme on the storefront.
 
-# Welcome
+Installing sample data is optional.
 
-Welcome to Magento 2 installation! We're glad you chose to install Magento 2, a cutting-edge, feature-rich eCommerce solution that gets results.
+Technically, sample data is a set of regular Magento modules, which can be deployed and installed together with the Magento instance, or later in the scope of upgrade.
 
-## Magento System Requirements
+## Deploy Sample Data
+You can deploy sample data from one of the following sources:
 
-[Magento System Requirements](https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html).
+* From the Magento composer repository, optionally using Magento CLI
+* From the Magento GitHub repository
 
-## Install Magento
+If your Magento code base was cloned from the `master` branch, you can use either source of the sample data. If it was cloned from the `develop` branch, use the GitHub repository and choose to get sample data modules from the `develop` branch.
 
-* [Installation Guide](https://devdocs.magento.com/guides/v2.4/install-gde/bk-install-guide.html).
+### Deploy Sample Data from Composer Repository
 
-## Learn More About GraphQL in Magento 2
+To deploy sample data from the Magento composer repository using Magento CLI:
 
-* [GraphQL Developer Guide](https://devdocs.magento.com/guides/v2.4/graphql/index.html)
+1. If your Magento instance is already installed, skip this step. Otherwise, in the Magento root directory, run: `# composer install`.
+2. In the Magento root directory, run: `# bin/magento sampledata:deploy`. This command collects the dependencies from the `suggest` sections of the `composer.json` files of modules, which suggest to install sample data (like `Magento_Catalog`, `Magento_Sales`, and so on).
 
-## Contributing to the Magento 2 Code Base
+To deploy sample data from the Magento composer repository without Magento CLI:
 
-Contributions can take the form of new components or features, changes to existing features, tests, documentation (such as developer guides, user guides, examples, or specifications), bug fixes, optimizations, or just good suggestions.
+1. Specify sample data packages in the `require` section of the root `composer.json` file, for example:
+```
+{
+    "require": {
+        ...
+        "magento/module-catalog-sample-data": "{version}",
+        "magento/module-configurable-sample-data": "{version}",
+        "magento/module-cms-sample-data": "{version}",
+        "magento/module-sales-sample-data": "{version}"
+        ....
+    }
+}
+```
 
-To learn about how to contribute, click [here][1].
+Where `<version>` is the version of the packages; it should correspond to the version of the Magento instance.
 
-To learn about issues, click [here][2]. To open an issue, click [here][3].
+Each package corresponds to a sample data module. The complete list of available modules can be viewed in the [sample data GitHub repository] (https://github.com/magento/magento2-sample-data/tree/develop/app/code/Magento)
 
-To suggest documentation improvements, click [here][4].
+2. To update the dependencies, in the Magento root directory, run: `# composer update`
 
-[1]: https://devdocs.magento.com/guides/v2.4/contributor-guide/contributing.html
-[2]: https://devdocs.magento.com/guides/v2.4/contributor-guide/contributing.html#report
-[3]: https://github.com/magento/magento2/issues
-[4]: https://devdocs.magento.com
+### Deploy Sample Data from GitHub Repository
 
-### Community Maintainers
+To deploy sample data from the GitHub repository:
 
-The members of this team have been recognized for their outstanding commitment to maintaining and improving Magento. Magento has granted them permission to accept, merge, and reject pull requests, as well as review issues, and thanks to these Community Maintainers for their valuable contributions.
+1. Clone sample data from `https://github.com/magento/magento2-sample-data`. If your Magento instance was cloned from the `master` branch, choose the `master` branch when cloning sample data; choose the `develop` branch if Magento was cloned from `develop`.
+2. Link the sample data and your Magento instance by running: `# php -f <sample-data_clone_dir>/dev/tools/build-sample-data.php -- --ce-source="<path_to_your_magento_instance>"`
 
-[![](https://raw.githubusercontent.com/wiki/magento/magento2/images/maintainers.png)](https://magento.com/magento-contributors#maintainers)
+## Install Sample Data
+Once the sample data is deployed, it will be installed automatically when you install or upgrade your Magento instance by using the command line.
 
-### Top Contributors
+## Uninstall Sample Data
+To remove the sample data modules from the code base, run one of the following commands from the Magento root directory:
 
-Magento is thankful for any contribution that can improve our codebase, documentation or increase test coverage. We always recognize our most active members, as their contributions are the foundation of the Magento Open Source platform.
+* If sample data was deployed from the composer repository, run: `# bin/magento sampledata:remove`
+* If sample data was deployed from the GitHub repository and linked to your Magento instance, run:
+`# php -f <sample-data_clone_dir>/dev/tools/build-sample-data.php – --command=unlink --ce-source="<path_to_your_magento_instance>"`
 
-[![](https://raw.githubusercontent.com/wiki/magento/magento2/images/contributors.png)](https://magento.com/magento-contributors)
+To delete all the products and other entities provided by the sample data modules, delete the database and reinstall Magento with a clean database.
 
-### Labels Applied by the Magento Team
+## Reinstall Sample Data
+If you have deleted certain entities provided by sample data and want to restore them, take the following steps:
 
-We apply labels to public Pull Requests and Issues to help other participants retrieve additional information about current progress, component assignments, Magento release lines, and much more.
-Please review the [Code Contributions guide](https://devdocs.magento.com/guides/v2.4/contributor-guide/contributing.html#labels) for detailed information on labels used in Magento 2 repositories.
+1. From the Magento root directory, run the following command: `# bin/magento sampledata:reset`
+2. Upgrade Magento as usual.
 
-## Reporting Security Issues
+The deleted sample data entities will be restored. Those entities, which were changed, will preserve these changes and will not be restored to the default view.
 
-To report security vulnerabilities or learn more about reporting security issues in Magento software or web sites visit the [Magento Bug Bounty Program](https://hackerone.com/magento) on hackerone. Please create a hackerone account [there](https://hackerone.com/magento) to submit and follow-up on your issue.
-
-Stay up-to-date on the latest security news and patches for Magento by signing up for [Security Alert Notifications](https://magento.com/security/sign-up).
-
-## License
-
-Each Magento source file included in this distribution is licensed under OSL 3.0 or the Magento Enterprise Edition (MEE) license.
-
-[Open Software License (OSL 3.0)](https://opensource.org/licenses/osl-3.0.php).
-Please see [LICENSE.txt](https://github.com/magento/magento2/blob/2.4-develop/LICENSE.txt) for the full text of the OSL 3.0 license or contact license@magentocommerce.com for a copy.
-
-Subject to Licensee's payment of fees and compliance with the terms and conditions of the MEE License, the MEE License supersedes the OSL 3.0 license for each source file.
-Please see LICENSE_EE.txt for the full text of the MEE License or visit <https://magento.com/legal/terms/enterprise>.
-
-## Community Engineering Slack
-
-To connect with Magento and the Community, join us on the [Magento Community Engineering Slack](https://magentocommeng.slack.com). If you are interested in joining Slack, or a specific channel, send us a request at [engcom@adobe.com](mailto:engcom@adobe.com) or [self signup](https://opensource.magento.com/slack).
-
-We have channels for each project. These channels are recommended for new members:
-
-* [general](https://magentocommeng.slack.com/messages/C4YS78WE6): Open chat for introductions and Magento 2 questions
-* [github](https://magentocommeng.slack.com/messages/C7KB93M32): Support for GitHub issues, pull requests, and processes
-* [public-backlog](https://magentocommeng.slack.com/messages/CCV3J3RV5): Discussions of the Magento 2 backlog
+## Documentation
+You can find the more detailed description of sample data manipulation procedures at [http://devdocs.magento.com/guides/v2.4/install-gde/install/cli/install-cli-sample-data.html](http://devdocs.magento.com/guides/v2.4/install-gde/install/cli/install-cli-sample-data.html)
