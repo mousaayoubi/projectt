@@ -1,0 +1,19 @@
+<?php
+
+$messageViewModel = $block->getData('view_model');
+
+?>
+
+<div id="vue-test">
+<h1>{{ message }}</h1>
+</div>
+
+<script type="text/x-magento-init">
+{
+"#vue-test": {
+"Macademy_JsFun/js/vue-test": {
+"message": "<?= $messageViewModel->getMessage() ?>"
+}
+}
+}
+</script>

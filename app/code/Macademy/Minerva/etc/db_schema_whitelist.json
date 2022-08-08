@@ -1,0 +1,19 @@
+{
+    "macademy_minerva_faq": {
+        "column": {
+            "id": true,
+            "question": true,
+            "answer": true,
+            "required": true,
+            "created_at": true,
+            "updated_at": true,
+            "is_published": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        },
+        "index": {
+            "MACADEMY_MINERVA_FAQ_QUESTION": true
+        }
+    }
+}

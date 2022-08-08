@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+<referenceBlock name="page.main.title">
+<action method="setPageTitle">
+<argument name="pageTitle" translate="true" xsi:type="string">Best Selling</argument>
+</action>
+<arguments>
+<argument name="css_class" xsi:type="string">copyright</argument>
+</arguments>
+</referenceBlock>
+<referenceContainer name="content">
+<container htmlTag="div" htmlId="description-container">
+<block name="macademy.firsttemplate" template="Macademy_FirstTemplate::description.phtml">
+<arguments>
+<argument name="description_view_model" xsi:type="object">Macademy\FirstTemplate\ViewModel\Description</argument>
+</arguments>
+<block name="macademy.firsttemplate.extra1" template="Macademy_FirstTemplate::extra-description.phtml" />
+<block name="macademy.firsttemplate.extra2" template="Macademy_FirstTemplate::extra-description.phtml" />
+<block name="macademy.firsttemplate.extra3" template="Macademy_FirstTemplate::extra-description.phtml" />
+</block>
+</container>
+</referenceContainer>
+<move element="wishlist_sidebar" destination="sidebar.additional" before="-" />
+<referenceContainer name="catalog.compare.sidebar" remove="true" />
+<referenceBlock name="wishlist_sidebar" template="Macademy_FirstTemplate::wishlist/sidebar.phtml" />
+</body>
+</page>

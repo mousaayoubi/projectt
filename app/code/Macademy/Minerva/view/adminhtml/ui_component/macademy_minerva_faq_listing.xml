@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<argument name="data" xsi:type="array">
+<item name="js_config" xsi:type="array">
+<item name="provider" xsi:type="string">macademy_minerva_faq_listing.macademy_minerva_faq_listing_data_source</item>
+<item name="deps" xsi:type="string">macademy_minerva_faq_listing.macademy_minerva_faq_listing_data_source</item>
+</item>
+<item name="spinner" xsi:type="string">macademy_minerva_faq_columns</item>
+<item name="buttons" xsi:type="array">
+<item name="add" xsi:type="string">Macademy\Minerva\Ui\Component\Listing\Button\Add</item>
+</item>
+</argument>
+<dataSource name="macademy_minerva_faq_listing_data_source">
+<argument name="dataProvider" xsi:type="configurableObject">
+<argument name="class" xsi:type="string">Macademy\Minerva\Ui\DataProvider\Category\ListingDataProvider</argument>
+<argument name="name" xsi:type="string">macademy_minerva_faq_listing_data_source</argument>
+<argument name="primaryFieldName" xsi:type="string">id</argument>
+<argument name="requestFieldName" xsi:type="string">id</argument>
+<argument name="data" xsi:type="array">
+<item name="config" xsi:type="array">
+<item name="update_url" xsi:type="url" path="mui/index/render"/>
+<item name="storageConfig" xsi:type="array">
+<item name="indexField" xsi:type="string">id</item>
+</item>
+</item>
+</argument>
+</argument>
+<argument name="data" xsi:type="array">
+<item name="js_config" xsi:type="array">
+<item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+</item>
+</argument>
+</dataSource>
+<listingToolbar>
+<settings>
+<sticky>true</sticky>
+</settings>
+<filterSearch name="fulltext"/>
+<filters name="listing_filters"/>
+<bookmark name="bookmarks"/>
+<paging name="listing_paging"/>
+</listingToolbar>
+<columns name="macademy_minerva_faq_columns">
+<settings>
+<editorConfig>
+<param name="selectProvider" xsi:type="string">macademy_minerva_faq_listing.macademy_minerva_faq_listing.macademy_minerva_faq_columns.ids</param>
+<param name="enabled" xsi:type="boolean">true</param>
+<param name="indexField" xsi:type="string">id</param>
+<param name="clientConfig" xsi:type="array">
+<item name="saveUrl" path="minerva/faqs/inlineEdit" xsi:type="url"/>
+<item name="validateBeforeSave" xsi:type="boolean">false</item>
+</param>
+</editorConfig>
+<childDefaults>
+<param name="fieldAction" xsi:type="array">
+<item name="provider" xsi:type="string">macademy_minerva_faq_listing.macademy_minerva_faq_listing.macademy_minerva_faq_columns_editor</item>
+<item name="target" xsi:type="string">startEdit</item>
+<item name="params" xsi:type="array">
+<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+<item name="1" xsi:type="boolean">true</item>
+</item>
+</param>
+</childDefaults>
+</settings>
+<selectionsColumn name="ids">
+<settings>
+<indexField>id</indexField>
+</settings>
+</selectionsColumn>
+<column name="id">
+<settings>
+<label>ID</label>
+</settings>
+</column>
+<column name="question">
+<settings>
+<filter>text</filter>
+<editor>
+<validation>
+<rule name="required-entry" xsi:type="boolean">true</rule>
+</validation>
+<editorType>text</editorType>
+</editor>
+<dataType>text</dataType>
+<label>Question</label>
+</settings>
+</column>
+<column name="answer">
+<settings>
+<filter>text</filter>
+<editor>
+<validation>
+<rule name="required-entry" xsi:type="boolean">true</rule>
+</validation>
+<editorType>text</editorType>
+</editor>
+<dataType>text</dataType>
+<label>Answer</label>
+</settings>
+</column>
+<column name="is_published" component="Magento_Ui/js/grid/columns/select">
+<settings>
+<filter>select</filter>
+<editor>
+<validation>
+<rule name="required-entry" xsi:type="boolean">true</rule>
+</validation>
+<editorType>select</editorType>
+</editor>
+<dataType>select</dataType>
+<label>Is Published?</label>
+<options>
+<option name="0" xsi:type="array">
+<item name="value" xsi:type="number">0</item>
+<item name="label" xsi:type="string">No</item>
+</option>
+<option name="1" xsi:type="array">
+<item name="value" xsi:type="number">1</item>
+<item name="label" xsi:type="string">Yes</item>
+</option>
+</options>
+</settings>
+</column>
+<column name="created_at">
+<settings>
+<filter>dateRange</filter>
+<dataType>date</dataType>
+<label>Created At</label>
+</settings>
+</column>
+<column name="updated_at">
+<settings>
+<filter>dateRange</filter>
+<dataType>date</dataType>
+<label>Updated At</label>
+</settings>
+</column>
+<actionsColumn name="actions" class="Macademy\Minerva\Ui\Component\Listing\Column\Actions">
+<settings>
+<label translate="true">Actions</label>
+</settings>
+</actionsColumn>
+</columns>
+</listing>

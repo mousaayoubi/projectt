@@ -1,0 +1,14 @@
+{
+    "macademy_exampledb_sales_bestsellers": {
+        "column": {
+            "id": true,
+            "is_prefered": true
+        },
+        "index": {
+            "MACADEMY_EXAMPLEDB_SALES_BESTSELLERS_IS_PREFERED": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

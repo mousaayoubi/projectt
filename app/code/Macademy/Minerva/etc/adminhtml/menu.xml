@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<menu>
+<add id="Macademy_Minerva::minerva" title="Minerva" translate="title" module="Macademy_Minerva" sortOrder="99" parent="Magento_Backend::content" resource="Macademy_Minerva::minerva"/>
+<add id="Macademy_Minerva::faqs" title="FAQs" translate="title" module="Macademy_Minerva" sortOrder="10" parent="Macademy_Minerva::minerva" action="minerva/faqs/index" resource="Macademy_Minerva::minerva"/>
+</menu>
+</config>

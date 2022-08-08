@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+<table name="macademy_exampledb_sales_bestsellers" resource="sales" engine="innodb" comment="Macademy ExampleDB Sales Bestsellers">
+<column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+<column xsi:type="boolean" name="is_prefered" comment="Is Prefered?"/>
+<constraint xsi:type="primary" referenceId="PRIMARY">
+<column name="id"/>
+</constraint>
+<index referenceId="MACADEMY_EXAMPLEDB_SALES_BESTSELLERS" indexType="btree">
+<column name="is_prefered"/>
+</index>
+</table>
+</schema>

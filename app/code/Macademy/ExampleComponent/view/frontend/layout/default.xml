@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+<referenceContainer name="header.container">
+<block name="free.shipping" template="Macademy_ExampleComponent::free-shipping.phtml" after="-">
+<arguments>
+<argument name="jsLayout" xsi:type="array">
+<item name="components" xsi:type="array">
+<item name="free-shipping" xsi:type="array">
+<item name="component" xsi:type="string">Macademy_ExampleComponent/js/free-shipping</item>
+<item name="config" xsi:type="array">
+<item name="defaultMessage" xsi:type="string">Free shipping for orders over $100 😀</item>
+<item name="itemsInCartMessage" xsi:type="string">You are $XX.XX away from free shipping 😎</item>
+<item name="freeShippingMessage" xsi:type="string">You now have free shipping 🎉</item>
+</item>
+</item>
+</item>
+</argument>
+</arguments>
+</block>
+</referenceContainer>
+</body>
+</page>
