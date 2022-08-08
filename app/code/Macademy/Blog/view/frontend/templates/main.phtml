@@ -1,0 +1,15 @@
+<?php
+
+/** @var Magento\Framework\View\Element\AbstractBlock $block */
+/** @var \Magento\Framework\Escaper $escaper */
+/** @var Macademy\Blog\ViewModel\Post $postVm */
+
+$postVm = $block->getData('post_vm');
+
+?>
+
+<div class="blog-post-detail">
+<h1><?= $escaper->escapeHtml(__($postVm->getDetail()->getTitle())) ?></h1>
+<p><em><?= __('Created at: %1', $postVm->getDetail()->getCreatedAt()) ?></em></p>
+<p><?= $escaper->escapeHtml(__($postVm->getDetail()->getContent())) ?></p>
+</div>

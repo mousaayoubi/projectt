@@ -1,0 +1,28 @@
+<div class="review" data-bind="visible: isSuccessBoxModel">
+<h2>Review & Submit</h2>
+<p>Please review the box configurations before submitting.</p>
+<form data-bind="submit: handleSubmit">
+<table>
+<thead>
+<tr>
+<th>Number of Boxes</th>
+<th>Shipment Weight</th>
+<th>Billable Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span data-bind="text: totalNumberOfBoxes"></span></td>
+<td><span data-bind="text: totalShipmentWeight"></span><span> lb.</span></td>
+<td><span data-bind="text: totalBillableWeight"></span><span> lb.</span></td>
+</tr>
+<tr>
+<td><input type="checkbox" data-bind="checked: isChecked"><span> I agree to the terms and conditions</span></td>
+<td><button class="primary action" data-bind="enable: isEnabled()">Accept Shipping Plan</button></td>
+</tr>
+</tbody>
+</table>
+<input type="hidden" data-bind="value: ko.toJSON(boxConfigurations)" />
+<input type="hidden" data-bind="value: sku" />
+</form>
+</div>

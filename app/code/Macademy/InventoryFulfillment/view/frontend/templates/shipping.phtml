@@ -1,0 +1,26 @@
+<?php
+/**
+* @var \Magento\Framework\View\Element\AbstractBlock $block
+*/
+
+?>
+
+<div id="shipping-plan">
+<div id="sku-lookup" data-bind="scope: 'sku'">
+<!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<div id="box" data-bind="scope: 'box'">
+<!-- ko template: getTemplate()  --><!-- /ko -->
+</div>
+<div id="review" data-bind="scope: 'review'">
+<!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+</div>
+
+<script type="text/x-magento-init">
+{
+"#shipping-plan": {
+"Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+}
+}
+</script>

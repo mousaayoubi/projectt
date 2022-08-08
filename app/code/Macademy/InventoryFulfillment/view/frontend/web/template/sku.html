@@ -1,0 +1,9 @@
+<div class="sku-lookup">
+<form data-bind="submit: handleSubmit">
+<h2 data-bind="i18n: 'SKU Lookup'"></h2>
+<input id="sku" name="sku" type="text" data-bind="textInput: sku, attr: { placeholder: placeholder }" />
+<button class="primary action" id="confirm-sku" type="submit"><!-- ko i18n: 'Confirm SKU'--><!-- /ko --></button>
+<div><br /></div>
+<p data-bind="html: message, style: { color: isSuccess() ? 'green' : 'red' }" ></p>
+</form>
+</div>

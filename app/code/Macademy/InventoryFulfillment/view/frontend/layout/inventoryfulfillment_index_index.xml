@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+<referenceContainer name="main">
+<block name="shipping.plan" template="Macademy_InventoryFulfillment::shipping.phtml">
+<arguments>
+<argument name="jsLayout" xsi:type="array">
+<item name="components" xsi:type="array">
+<item name="sku" xsi:type="array">
+<item name="component" xsi:type="string">Macademy_InventoryFulfillment/js/sku</item>
+<item name="config" xsi:type="array">
+<item name="template" xsi:type="string">Macademy_InventoryFulfillment/sku</item>
+</item>
+</item>
+<item name="box" xsi:type="array">
+<item name="component" xsi:type="string">Macademy_InventoryFulfillment/js/box</item>
+<item name="config" xsi:type="array">
+<item name="template" xsi:type="string">Macademy_InventoryFulfillment/box</item>
+</item>
+</item>
+<item name="review" xsi:type="array">
+<item name="component" xsi:type="string">Macademy_InventoryFulfillment/js/review</item>
+<item name="config" xsi:type="array">
+<item name="template" xsi:type="string">Macademy_InventoryFulfillment/review</item>
+</item>
+</item>
+</item>
+</argument>
+</arguments>
+</block>
+</referenceContainer>
+<referenceContainer name="sidebar.additional" display="false">
+</referenceContainer>
+</body>
+</page>

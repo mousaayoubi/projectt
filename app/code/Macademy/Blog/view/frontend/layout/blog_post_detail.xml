@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+<referenceContainer name="main">
+<block name="blog.post.main" template="Macademy_Blog::main.phtml">
+<arguments>
+<argument name="post_vm" xsi:type="object">Macademy\Blog\ViewModel\Post</argument>
+</arguments>
+</block>
+</referenceContainer>
+<referenceContainer name="sidebar.additional">
+<block name="blog.post.sidebar" before="-" template="Macademy_Blog::right.phtml">
+<arguments>
+<argument name="post_vm" xsi:type="object">Macademy\Blog\ViewModel\Post</argument>
+</arguments>
+</block>
+</referenceContainer>
+<referenceBlock name="wishlist_sidebar" display="false" />
+<referenceBlock name="catalog.compare.sidebar" display="false" />
+<referenceContainer name="footer" display="false">
+</referenceContainer>
+</body>
+</page>
