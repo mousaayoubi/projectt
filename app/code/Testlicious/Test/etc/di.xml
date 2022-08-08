@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<type name="Testlicious\Test\Controller\Test\Test">
+<plugin name="testlicious_test_plugin_testplugin" type="Testlicious\Test\Plugin\TestPlugin" />
+</type>
+<preference for="Testlicious\Test\Api\TestRepositoryInterface" type="Testlicious\Test\Model\TestRepository" />
+</config>

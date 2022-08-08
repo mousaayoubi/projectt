@@ -1,0 +1,29 @@
+<?php
+
+/**
+* @var \Magento\Framework\View\Element\BlockInterface $block
+* @var \Testlicious\Test\ViewModel\TestVm $testVm
+*/
+
+$testVm = $block->getData('view_model');
+
+?>
+
+<?php foreach ($testVm->getList() as $test): ?>
+<span><?= $test->getData('first_name') ?> </span>
+<span><?= $test->getData('last_name') ?> </span>
+<span><?= $test->getData('email') ?> </span>
+<span><?= $test->getData('created_at') ?> </span>
+<br />
+<?php endforeach ?>
+<br />
+<div id="hiworld" data-bind="scope: 'hiworld'">
+<!-- ko template: getTemplate() --><!-- /ko -->
+<script type="text/x-magento-init">
+{
+"#hiworld": {
+"Magento_Ui/js/core/app": <?php echo $block->getJsLayout(); ?>
+}
+}
+</script>
+</div>
