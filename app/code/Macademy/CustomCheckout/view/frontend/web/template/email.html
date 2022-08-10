@@ -1,5 +1,6 @@
 <li id="email" class="checkout-email" data-bind="fadeVisible: isVisible">
 <div id="checkout-step-email" class="step-content" data-role="content" role="tabpanel" aria-hidden="false">
+<each args="getRegion('customer-email')" render="" />
 <form data-bind="submit: onSubmit">
 <div>
 <button data-role="opc-continue" class="primary action" type="submit">Next</button>
