@@ -22,5 +22,8 @@ return this;
 navigate: function(){
 return this.isVisible(true);
 },
+onSubmit: function(){
+return stepNavigator.next();
+},
 })
 })
