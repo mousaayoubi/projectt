@@ -23,6 +23,7 @@ navigate: function(){
 return this.isVisible(true);
 },
 onSubmit: function(){
+console.log('The doctor information has been submitted successfully.');
 return stepNavigator.next();
 }
 })
