@@ -1,6 +1,10 @@
-<li id="doctor" class="checkout-doctor">
+<li id="doctor" class="checkout-doctor" data-bind="fadeVisible: isVisible">
 <div id="checkout-step-doctor" class="step-content" data-role="content" role="tabpanel" aria-hidden="false">
+<each if="!quoteIsVirtual" args="getRegion('doctor-info')" render="" />
 <form data-bind="submit: onSubmit">
+<div>
+<button data-role="opc-continue" class="primary action" type="submit">Next</button>
+</div>
 </form>
 </div>
 </li>

@@ -4,13 +4,15 @@ define([
 'mage/translate',
 'ko',
 'underscore',
-], function(Component, stepNavigator, $t, ko, _){
+'Magento_Checkout/js/model/quote',
+], function(Component, stepNavigator, $t, ko, _, quote){
 'use strict';
 
 return Component.extend({
 defaults: {
 template: 'Macademy_CustomCheckout/doctor',
 isVisible: ko.observable(false),
+quoteIsVirtual: quote.isVirtual(),
 },
 initialize: function(){
 this._super();
