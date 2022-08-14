@@ -7,7 +7,8 @@ define([
 'Magento_Checkout/js/model/quote',
 'Magento_Customer/js/model/customer',
 'jquery',
-], function(Component, ko, stepNavigator, $t, _, quote, customer, $){
+'Magento_Checkout/js/model/customer-email-validator',
+], function(Component, ko, stepNavigator, $t, _, quote, customer, $, customerEmailValidator){
 'use strict';
 
 return Component.extend({
@@ -27,21 +28,9 @@ navigate: function(){
 return this.isVisible(true);
 },
 onSubmit: function(){
-if (this.validateEmail()){
+if (customerEmailValidator.validate()){
 return stepNavigator.next();
 }
-},
-validateEmail: function(){
-const loginFormSelector = 'form[data-role=email-with-possible-login]';
-let emailValidationResult = customer.isLoggedIn();
-
-if (!customer.isLoggedIn()){
-$(loginFormSelector).validation();
-emailValidationResult = Boolean($(loginFormSelector + ' input[name=username]').valid());
-}
-
-return emailValidationResult;
-
 },
 })
 })
