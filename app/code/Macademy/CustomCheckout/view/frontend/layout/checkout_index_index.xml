@@ -67,6 +67,19 @@
                                                     </item>
                                                 </item>
                                             </item>
+                                            <item name="doctor-step" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="sortOrder" xsi:type="string">100</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="doctor" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Macademy_CustomCheckout/js/view/doctor</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="title" xsi:type="string" translate="true">Doctor Info</item>
+                                                            <item name="sortOrder" xsi:type="string">100</item>
+                                                        </item>
+                                                        </item>
+                                                </item>
+                                            </item>
                                         </item>
                                     </item>
                                 </item>
