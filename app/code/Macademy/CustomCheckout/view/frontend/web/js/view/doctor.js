@@ -20,5 +20,8 @@ stepNavigator.registerStep('doctor', null, $t('Doctor Info'), this.isVisible, _.
 navigate: function(){
 return this.isVisible(true);
 },
+onSubmit: function(){
+return stepNavigator.next();
+}
 })
 })
