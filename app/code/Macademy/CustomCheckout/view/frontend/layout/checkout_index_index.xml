@@ -83,6 +83,9 @@
                                         </item>
                                     </item>
                                     <item name="sidebar" xsi:type="array">
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">Macademy_CustomCheckout/sidebar</item>
+                                        </item>
                                         <item name="children" xsi:type="array">
                                             <item name="discount" xsi:type="array">
                                                 <item name="component" xsi:type="string">Macademy_CustomCheckout/js/view/payment/discount</item>
