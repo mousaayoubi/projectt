@@ -87,6 +87,13 @@
                                             <item name="template" xsi:type="string">Macademy_CustomCheckout/sidebar</item>
                                         </item>
                                         <item name="children" xsi:type="array">
+                                            <item name="summary" xsi:type="array">
+                                                <item name="children" xsi:type="array">
+                                                    <item name="cart_items" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Macademy_CustomCheckout/js/view/summary/cart-items</item>
+                                                    </item>
+                                                </item>
+                                            </item>
                                             <item name="discount" xsi:type="array">
                                                 <item name="component" xsi:type="string">Macademy_CustomCheckout/js/view/payment/discount</item>
                                                 <item name="displayArea" xsi:type="string">after-summary</item>
