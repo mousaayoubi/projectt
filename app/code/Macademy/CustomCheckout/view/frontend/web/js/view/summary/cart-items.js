@@ -4,9 +4,6 @@ define([
 'use strict';
 
 return Component.extend({
-defaults: {
-template: 'Macademy_CustomCheckout/summary/cart-items',
-},
 isItemsBlockExpanded: function(){
 return true;
 },
