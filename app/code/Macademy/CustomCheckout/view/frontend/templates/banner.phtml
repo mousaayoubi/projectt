@@ -1,3 +1,18 @@
-<div>
+<div data-bind="scope: 'banner'">
+<!-- ko if: isVisible -->
 <h3>Welcome to Our Visitors!</h3>
+<!-- /ko -->
 </div>
+<script type="text/x-magento-init">
+{
+"*": {
+"Magento_Ui/js/core/app": {
+"components": {
+"banner": {
+"component": "Macademy_CustomCheckout/js/view/banner"
+}
+}
+}
+}
+}
+</script>
