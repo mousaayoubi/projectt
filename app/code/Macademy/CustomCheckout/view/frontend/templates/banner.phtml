@@ -1,6 +1,6 @@
 <div id="banner" data-bind="scope: 'banner'">
 <!-- ko if: isVisible -->
-<h3>Welcome <span data-bind="text: new String(customer().firstname)"></span></h3>
+<h3>Welcome <span data-bind="text: new String('<?= ('%1') ?>').replace('%1', customer().fullname)"></span></h3>
 <!-- /ko -->
 </div>
 <script type="text/x-magento-init">
