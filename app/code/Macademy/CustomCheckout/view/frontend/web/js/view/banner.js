@@ -9,6 +9,7 @@ define([
 return Component.extend({
 defaults: {
 isVisible: ko.observable(customer.isLoggedIn()),
+fname: 'hi world',
 },
 initialize: function(){
 this._super();
