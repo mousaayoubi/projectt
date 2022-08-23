@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main.content">
-            <block name="banner" before="-" template="Macademy_CustomCheckout::banner.phtml" />
+            <block name="banner" class="Macademy\CustomCheckout\Block\Checkout\ModifyCheckout" before="-" template="Macademy_CustomCheckout::banner.phtml" />
         </referenceContainer>
         <referenceContainer name="content">
             <referenceBlock name="checkout.root">
