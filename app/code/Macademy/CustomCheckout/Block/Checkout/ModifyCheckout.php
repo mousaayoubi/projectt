@@ -5,6 +5,7 @@ namespace Macademy\CustomCheckout\Block\Checkout;
 use Magento\Framework\View\Element\Template;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Backend\Block\Template\Context;
+use Magento\Framework\App\ObjectManager;
 
 class ModifyCheckout extends Template {
 
@@ -18,9 +19,13 @@ parent::__construct($context, $data);
 
 }
 
-public function getStoreName(){
+public function getStorePhone(){
 
-return $this->storeManager->getStore()->getName();
+$objectManager = ObjectManager::getInstance();
+
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+
+return $storeManager->getStore()->getStoreId();
 
 }
 }
