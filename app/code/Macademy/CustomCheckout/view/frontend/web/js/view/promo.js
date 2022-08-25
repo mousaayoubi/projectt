@@ -1,20 +1,50 @@
 define([
 'uiComponent',
 'ko',
-'Magento_Checkout/js/model/quote',
-], function(Component, quote){
+'Magento_Customer/js/customer-data',
+'underscore',
+], function(Component, ko, customerData, _){
 'use strict';
 
 return Component.extend({
 defaults: {
-total: '$100',
+threshold: 100,
+subtotal: 0.00,
+tracks: {
+subtotal: true
+},
 },
 initialize: function(){
 this._super();
 console.log('The promo component has been loaded successfully.');
-},
-grandTotal: function(){
+
+var self = this;
+
+var cart = customerData.get('cart');
+
+customerData.getInitCustomerData().done(function(){
+if (!_.isEmpty(cart()) && !_.isUndefined(cart().subtotalAmount)){
+self.subtotal = parseFloat(cart().subtotalAmount);
+}
+});
+
+cart.subscribe(function(cart){
+if (!_.isEmpty(cart) && !_.isUndefined(cart.subtotalAmount)){
+self.subtotal = parseFloat(cart.subtotalAmount);
+console.log(self.subtotal);
+}
+});
+
+self.message = ko.computed(function(){
+if (self.subtotal === 0){
 return '$100';
+}
+
+if (self.subtotal > 0 && self.subtotal < self.threshold){
+var remaining = self.threshold - self.subtotal;
+return remaining;
+}
+})
 },
 })
 })
