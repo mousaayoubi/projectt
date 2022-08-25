@@ -9,7 +9,7 @@ $storePhone = $block->getStorePhone();
 
 <div id="banner" data-bind="scope: 'banner'">
 <!-- ko if: isVisible -->
-<h3>Welcome <span data-bind="text: new String('<?= ('%1') ?>').replace('%1', customer().firstname)"></span><span>! Our web store city is </span><span><?php echo $storePhone; ?>.</span></h3>
+<h3>Welcome <span data-bind="text: new String('<?= ('%1') ?>').replace('%1', customer().firstname)"></span><span>! Our web store phone is </span><span><?php echo $storePhone; ?>.</span></h3>
 <!-- /ko -->
 </div>
 <script type="text/x-magento-init">
