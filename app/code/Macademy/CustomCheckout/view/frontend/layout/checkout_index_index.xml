@@ -98,6 +98,12 @@
                                                             <item name="template" xsi:type="string">Macademy_CustomCheckout/summary/cart-items</item>
                                                         </item>
                                                     </item>
+                                                    <item name="promo" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Macademy_CustomCheckout/js/view/promo</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Macademy_CustomCheckout/summary/promo</item>
+                                                        </item>
+                                                    </item>
                                                 </item>
                                             </item>
                                             <item name="discount" xsi:type="array">
