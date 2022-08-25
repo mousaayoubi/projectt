@@ -1,1 +1,16 @@
-<p>Add $XX.XX to your cart to receive a promo code of 10% off your entire order.</p>
+<div class="summary-promo">
+<p>Add <span data-bind="text: total"></span> to your cart to receive a promo code of 10% off your entire order.</p>
+<script type="text/x-magento-init">
+{
+"*": {
+"Magento_Ui/js/core/app": {
+"components": {
+"promo": {
+"component": "Macademy_CustomCheckout/js/view/promo"
+}
+}
+}
+}
+}
+</script>
+</div>
