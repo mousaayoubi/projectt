@@ -42,9 +42,12 @@ return '$100';
 
 if (self.subtotal > 0 && self.subtotal < self.threshold){
 var remaining = self.threshold - self.subtotal;
-return remaining;
+return self.formatCurrency(remaining);
 }
 })
+},
+formatCurrency: function(value){
+return '$' + value.toFixed(2);
 },
 })
 })
