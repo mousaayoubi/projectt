@@ -8,10 +8,12 @@ define([
 
 return Component.extend({
 defaults: {
+isVisible: ko.observable(true),
 threshold: 100,
 subtotal: 0.00,
 tracks: {
-subtotal: true
+subtotal: true,
+isVisible: true,
 },
 },
 initialize: function(){
@@ -40,11 +42,20 @@ if (self.subtotal === 0){
 return '$100';
 }
 
+if (self.subtotal > 100){
+return '$0.00'
+}
+
 if (self.subtotal > 0 && self.subtotal < self.threshold){
 var remaining = self.threshold - self.subtotal;
 return self.formatCurrency(remaining);
 }
 })
+},
+isVisible: function(){
+if (self.subtotal > 100){
+return this.isVisible(false);
+}
 },
 formatCurrency: function(value){
 return '$' + value.toFixed(2);
