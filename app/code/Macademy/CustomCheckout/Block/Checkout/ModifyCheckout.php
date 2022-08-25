@@ -24,7 +24,7 @@ parent::__construct($context, $data);
 
 public function getStorePhone(){
 
-return $this->storeInfo->getStoreInformationObject($this->storeManager->getStore())->getPhone();
+return $this->storeInfo->getStoreInformationObject($this->storeManager->getStore())->getCity();
 
 }
 }
