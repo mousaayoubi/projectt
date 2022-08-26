@@ -37,11 +37,11 @@ console.log(self.subtotal);
 }
 });
 
+self.message = ko.computed(function(){
 if (self.subtotal > 100){
 return self.isVisible(false);
 }
 
-self.message = ko.computed(function(){
 if (self.subtotal === 0){
 return '$100';
 }
