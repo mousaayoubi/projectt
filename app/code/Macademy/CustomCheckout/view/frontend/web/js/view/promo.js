@@ -37,13 +37,13 @@ console.log(self.subtotal);
 }
 });
 
+if (self.subtotal > 100){
+return self.isVisible(false);
+}
+
 self.message = ko.computed(function(){
 if (self.subtotal === 0){
 return '$100';
-}
-
-if (self.subtotal > 100){
-return '$0.00'
 }
 
 if (self.subtotal > 0 && self.subtotal < self.threshold){
