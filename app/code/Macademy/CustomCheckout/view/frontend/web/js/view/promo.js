@@ -33,7 +33,7 @@ self.subtotal = parseFloat(cart().subtotalAmount);
 cart.subscribe(function(cart){
 if (!_.isEmpty(cart) && !_.isUndefined(cart.subtotalAmount)){
 self.subtotal = parseFloat(cart.subtotalAmount);
-console.log(self.subtotal);
+console.log('The cart subtotal is: ' + self.subtotal);
 }
 });
 
