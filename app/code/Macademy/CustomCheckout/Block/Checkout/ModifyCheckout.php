@@ -28,4 +28,16 @@ $getStore = $storeManager->getStore();
 return $this->storeInfo->getStoreInformationObject($getStore)->getPhone();
 
 }
+
+public function getCustomerEmail(){
+
+$objectManager = ObjectManager::getInstance();
+$customerSession = $objectManager->get(\Magento\Customer\Model\Session::class);
+
+if ($customerSession->isLoggedIn()){
+
+return $customerSession->getCustomer()->getEmail();
+
+}
+}
 }
