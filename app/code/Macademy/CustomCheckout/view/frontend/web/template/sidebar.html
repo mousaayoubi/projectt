@@ -26,6 +26,10 @@
         <!-- ko template: getTemplate() --><!-- /ko -->
     <!-- /ko -->
 
+    <br />
+    <div data-bind="html: window.checkoutConfig.fulfillment_status"></div>
+    <br />
+
     <div class="opc-block-shipping-information">
         <!-- ko foreach: getRegion('shipping-information') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
