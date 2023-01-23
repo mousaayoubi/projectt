@@ -75,13 +75,9 @@ self::ATTRIBUTE_CODE
 );
 
 $attribute->setData('used_in_forms', [
-'adminhtml_customer',
 'adminhtml_customer_address',
-'adminhtml_checkout',
 'customer_address_edit',
 'customer_register_address',
-'customer_account_create',
-'customer_account_edit',
 ]);
 
 $this->attribute->save($attribute);
