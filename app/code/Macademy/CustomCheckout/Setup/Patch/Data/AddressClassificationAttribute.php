@@ -7,7 +7,7 @@ use Magento\Customer\Model\ResourceModel\Attribute;
 use Magento\Eav\Model\Config;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Customer\Api\AddressMetadataInterface;
+use Magento\Customer\Api\AddressMetadataInterface; 
 use Macademy\CustomCheckout\Model\Config\Source\AddressClassification;
 
 class AddressClassificationAttribute implements DataPatchInterface
@@ -20,7 +20,12 @@ private $config;
 private $eavSetupFactory;
 private $moduleDataSetup;
 
-public function __construct(Attribute $attribute, Config $config, EavSetupFactory $eavSetupFactory, ModuleDataSetupInterface $moduleDataSetup)
+public function __construct(
+Attribute $attribute, 
+Config $config,
+EavSetupFactory $eavSetupFactory,
+ModuleDataSetupInterface $moduleDataSetup
+)
 {
 
 $this->attribute = $attribute;
@@ -48,6 +53,7 @@ public function apply()
 {
 
 $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
+
 $eavSetup->addAttribute(
 AddressMetadataInterface::ENTITY_TYPE_ADDRESS,
 self::ATTRIBUTE_CODE,
@@ -65,7 +71,7 @@ self::ATTRIBUTE_CODE,
 );
 
 $attribute = $this->config->getAttribute(
-AddressMetaDataInterface::ENTITY_TYPE_ADDRESS,
+AddressMetadataInterface::ENTITY_TYPE_ADDRESS,
 self::ATTRIBUTE_CODE
 );
 
