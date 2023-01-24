@@ -55,6 +55,9 @@ define([
          * @returns {*}
          */
         getCustomAttributeLabel: function (attribute) {
+            
+            console.log(attribute);
+
             var label;
 
             if (typeof attribute === 'string') {
