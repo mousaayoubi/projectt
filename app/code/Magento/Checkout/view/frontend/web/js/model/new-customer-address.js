@@ -33,6 +33,8 @@ define([
             regionId = window.checkoutConfig.defaultRegionId || undefined;
         }
 
+        console.log('addressData', addressData);
+
         return {
             email: addressData.email,
             countryId: countryId,

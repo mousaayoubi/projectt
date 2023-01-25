@@ -4,6 +4,7 @@
 <arguments>
 <argument name="layoutProcessors" xsi:type="array">
 <item name="UpdateBillingAddressLayoutProcessor" xsi:type="object">Macademy\CustomCheckout\Block\Checkout\LayoutProcessor\UpdateBillingAddressLayoutProcessor</item>
+<item name="UpdateShippingAttributeLayoutProcessor" xsi:type="object">Macademy\CustomCheckout\Block\Checkout\LayoutProcessor\UpdateShippingAttributeLayoutProcessor</item>
 </argument>
 </arguments>
 </type>
