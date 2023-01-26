@@ -3,4 +3,7 @@
 <type name="Magento\Checkout\Api\ShippingInformationManagementInterface">
 <plugin name="macademy_customcheckout_shipping_address_classification_plugin" type="Macademy\CustomCheckout\Plugin\ShippingAddressClassification" />
 </type>
+<type name="Magento\Quote\Model\Quote\Address\ToOrderAddress">
+<plugin name="macademy_customcheckout_quotetoorderaddress_plugin" type="Macademy\CustomCheckout\Plugin\QuoteToOrderAddress" />
+</type>
 </config>
