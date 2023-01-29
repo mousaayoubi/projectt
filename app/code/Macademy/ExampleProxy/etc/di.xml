@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<type name="Magento\Framework\Console\CommandListInterface">
+<arguments>
+<argument name="commands" xsi:type="array">
+<item name="macademy_exampleproxy_executemodels" xsi:type="object">Macademy\ExampleProxy\Console\Command\ExecuteModels</item>
+</argument>
+</arguments>
+</type>
+<type name="Macademy\ExampleProxy\Console\Command\ExecuteModels">
+<arguments>
+<argument name="slow" xsi:type="object">Macademy\ExampleProxy\Model\Slow\Proxy</argument>
+</arguments>
+</type>
+</config>
