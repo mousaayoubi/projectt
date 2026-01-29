@@ -14,7 +14,7 @@ class Identity implements IdentityInterface
 	{
 		$ids = [];
 		foreach ($resolvedData as $policyData) {
-		if(isset($policyData['id'] {
+		if(isset($policyData['id'])) {
 			$ids[] = GroupShippingPolicy::CACHE_TAG.'_'.$policyData['id'];
 		}
 		}
