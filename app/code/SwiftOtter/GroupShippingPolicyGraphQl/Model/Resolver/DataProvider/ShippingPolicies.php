@@ -1,0 +1,65 @@
+<?php
+
+declare(strict_types=1);
+
+namespace SwiftOtter\GroupShippingPolicyGraphQl\Model\Resolver\DataProvider;
+
+use SwiftOtter\GroupShippingPolicy\Api\GroupShippingPolicyRepositoryInterface;
+use Magento\Framework\Api\SearchCriteriaBuilder;
+use SwiftOtter\GroupShippingPolicy\Api\Data\GroupShippingPolicyInterface;
+use Magento\Framework\GraphQl\Exception\GraphQlNoSuchEntityException;
+use Magento\Customer\Model\Group;
+
+class ShippingPolicies
+{
+	private GroupShippingPolicyRepositoryInterface $policyRepository;
+	private SearchCriteriaBuilder $searchCriteriaBuilder;
+
+	public function __construct(
+		GroupShippingPolicyRepositoryInterface $policyRepository,
+		SearchCriteriaBuilder $searchCriteriaBuilder
+	)
+	{
+		$this->policyRepository = $policyRepository;
+		$this->searchCriteriaBuilder = $searchCriteriaBuilder;
+	}
+	
+	public function getAllPolicies()
+	{
+$policies = $this->policyRepository->getList($this->searchCriteriaBuilder->create())->getItems();
+$policyData = [];
+foreach ($policies as $policy) {
+$policyData[] = $this->formatPolicyData($policy);
+}
+return $policyData;
+	}
+
+	public function getCustomerGroupPolicy(?int $customerGroupId): array
+	{
+
+		if ($customerGroupId === null) {
+
+			$customerGroupId = Group::NOT_LOGGED_IN_ID;
+		}
+
+		$this->searchCriteriaBuilder->addFilter('customer_group_id', $customerGroupId);
+		$policies = $this->policyRepository->getList($this->searchCriteriaBuilder->create())->getItems();
+		if (empty($policies)){
+
+			throw new GraphQlNoSuchEntityException(__('No shipping policy for this user'));
+		}
+
+		return $this->formatPolicyData(current($policies));
+	}
+
+	private function formatPolicyData(GroupShippingPolicyInterface $policy)
+	{
+		return [
+			'id' => (int) $policy->getId(),
+			'customer_group_id' => $policy->getCustomerGroupId(),
+			'title' => $policy->getTitle(),
+			'description' => $policy->getDescription(),
+			'country_labels' => [],
+		];
+	}
+}
