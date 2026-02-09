@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\Test\Model\Rate;
+namespace Test1\Test1\Model\Rate;
 
 interface RateCalculatorInterface
 {

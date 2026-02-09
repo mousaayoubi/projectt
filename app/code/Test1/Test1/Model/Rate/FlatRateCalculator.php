@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\Test\Model\Rate;
+namespace Test1\Test1\Model\Rate;
 
 class FlatRateCalculator implements RateCalculatorInterface
 {
@@ -10,6 +10,6 @@ class FlatRateCalculator implements RateCalculatorInterface
 	public function calculate(float $packageValue): float
 	{
 
-		return $packageValue = 10;
+		return $packageValue = 30;
 	}
 }

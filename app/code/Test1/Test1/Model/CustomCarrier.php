@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\Test\Model;
+namespace Test1\Test1\Model;
 
 use Magento\Shipping\Model\Carrier\AbstractCarrierInterface;
 use Magento\Shipping\Model\Carrier\AbstractCarrier;
@@ -12,7 +12,7 @@ use Magento\Shipping\Model\Rate\ResultFactory;
 use Magento\Quote\Model\Quote\Address\RateResult\MethodFactory;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Quote\Model\Quote\Address\RateResult\ErrorFactory;
-use Test\Test\Model\Rate\RateCalculatorInterface;
+use Test1\Test1\Model\Rate\RateCalculatorInterface;
 
 class CustomCarrier extends AbstractCarrier implements AbstractCarrierInterface
 {

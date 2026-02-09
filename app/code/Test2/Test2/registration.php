@@ -6,6 +6,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
 	ComponentRegistrar::MODULE,
-	'Test_Test',
+	'Test2_Test2',
 	__DIR__
 );

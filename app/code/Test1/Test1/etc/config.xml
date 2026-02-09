@@ -8,7 +8,7 @@
 			<title>Test</title>
 			<name>Test</name>
 			<sallowspecific>0</sallowspecific>
-			<model>Test\Test\Model\CustomCarrier</model>
+			<model>Test1\Test1\Model\CustomCarrier</model>
 		</test_test>
 	</carriers>
 </default>
