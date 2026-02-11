@@ -17,10 +17,10 @@ class sayHi implements sayHiInterface
 	}
 	public function sayHi()
 {
-	$test = $this->testFactory->create();
-	$test->setData(['test' => 'test']);
-	$test->save();
+        $test = $this->testFactory->create();
+        $test->setData(['test' => 'test']);
+        $test->save();
 
-	return ['hi' => 'hi'];
+        return ['hi' => 'hi'];
 }
 }
